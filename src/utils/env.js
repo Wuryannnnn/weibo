@@ -3,11 +3,13 @@
  * @author wurui
  */
 
-const ENV = process.env.NODE_ENV
+const ENV = process.env.NODE_ENV;
 
 module.exports = {
-    isDev: ENV === 'dev',
-    notDev: ENV !== 'dev',
-    isProd: ENV === 'production',
-    notProd: ENV !== 'production',
-}
+  isDev: ENV === "dev",
+  notDev: ENV !== "dev",
+  isProd: ENV === "production",
+  notProd: ENV !== "production",
+  isTest: ENV === "test",
+  notTest: ENV !== "test",
+};
