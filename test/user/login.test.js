@@ -63,9 +63,37 @@ test('Login, should succeed', async () => {
 }
 )
 
+// changeInfo
+test('Change info, should succeed', async () => {
+    const res = await server.patch('/api/user/changeInfo').send({
+        nickName: '测试昵称',
+        city: '测试城市',
+        picture: '/test.png'
+    }).set('cookie', COOKIE)
+    expect(res.body.errno).toBe(0)
+}
+)
+
+// changePassword
+test('Change password, should succeed', async () => {
+    const res = await server.patch('/api/user/changePassword').send({
+        password,
+        newPassword: `p_${Date.now()}`
+    }).set('cookie', COOKIE)
+    expect(res.body.errno).toBe(0)
+}
+)
+
 // delete
 test('Delete a user, should succeed', async () => {
     const res = await server.post('/api/user/delete').set('cookie', COOKIE)
+    expect(res.body.errno).toBe(0)
+}
+)
+
+// logout
+test('Logout, should succeed', async () => {
+    const res = await server.post('/api/user/logout').set('cookie', COOKIE)
     expect(res.body.errno).toBe(0)
 }
 )
