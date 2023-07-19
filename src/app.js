@@ -17,7 +17,7 @@ const { REDIS_CONF } = require('./conf/db')
 const index = require('./routes/index')
 const userViewRouter = require('./routes/view/user')
 const errorViewRouter = require('./routes/view/error')
-
+const userAPIRouter = require('./routes/api/user')
 
 // error handler
 onerror(app)
@@ -51,16 +51,10 @@ app.use(session({
   })
 }))
 
-// logger
-// app.use(async (ctx, next) => {
-//   const start = new Date()
-//   await next()
-//   const ms = new Date() - start
-//   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
-// })
 
 // routes
 app.use(index.routes(), index.allowedMethods())
+app.use(userAPIRouter.routes(), userAPIRouter.allowedMethods())
 app.use(userViewRouter.routes(), userViewRouter.allowedMethods())
 app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods()) // errorViewRouter.allowedMethods() 作用：如果请求了 errorViewRouter 中没有的路由，会返回 404，而不是返回 500
 

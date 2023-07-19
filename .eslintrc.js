@@ -11,5 +11,10 @@ module.exports = {
     },
     "rules": {
         "no-unused-vars": "off",
+        "no-undef": "off",
+        "no-extra-boolean-cast": "off",
+        "no-cond-assign": "off",
+        "no-redeclare": "off",
+        "no-inner-declarations": "off"
     }
 }
