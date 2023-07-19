@@ -2,7 +2,7 @@
  * @description json test
  */
 
-const server = require('./server')
+const server = require('../server')
 
 test('json 接口返回数据格式正确', async () => {
     const res = await server.get('/json')
