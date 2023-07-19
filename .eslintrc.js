@@ -15,6 +15,7 @@ module.exports = {
         "no-extra-boolean-cast": "off",
         "no-cond-assign": "off",
         "no-redeclare": "off",
-        "no-inner-declarations": "off"
+        "no-inner-declarations": "off",
+        "no-useless-escape": "off"
     }
 }
