@@ -14,7 +14,7 @@ const redisStore = require('koa-redis')
 const { REDIS_CONF } = require('./conf/db')
 const {SESSION_SECRET_KEY} = require('./conf/secretKeys')
 
-const index = require('./routes/index')
+const blogViewRouter = require('./routes/view/blog')
 const userViewRouter = require('./routes/view/user')
 const errorViewRouter = require('./routes/view/error')
 const userAPIRouter = require('./routes/api/user')
@@ -55,8 +55,8 @@ app.use(session({
 
 
 // routes
-app.use(index.routes(), index.allowedMethods())
 app.use(userAPIRouter.routes(), userAPIRouter.allowedMethods())
+app.use(blogViewRouter.routes(), blogViewRouter.allowedMethods())
 app.use(userViewRouter.routes(), userViewRouter.allowedMethods())
 app.use(utilsAPIRouter.routes(), utilsAPIRouter.allowedMethods())
 app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods()) // errorViewRouter.allowedMethods() 作用：如果请求了 errorViewRouter 中没有的路由，会返回 404，而不是返回 500
