@@ -32,7 +32,8 @@
     "pre-commit": "^1.2.2",
     "redis": "^4.6.7",
     "sequelize": "^6.32.1",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "xss": "^1.0.14"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
