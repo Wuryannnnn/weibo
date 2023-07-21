@@ -37,6 +37,37 @@ async function getUsersByFollower(followerId) {
 }
 
 /**
+ * 添加关注关系
+ * @param {number} followerId 被关注人id
+ * @param {number} userId 关注人id
+ * @returns {Promise<void>}
+ */
+async function addFollower(userId, followerId) {
+    const result = await UserRelation.create({
+        userId,
+        followerId
+    })
+    return result.dataValues
+}
+
+/**
+ * 删除关注关系
+ * @param {number} followerId 被关注人id
+ * @param {number} userId 关注人id
+ * @returns {Promise<void>}
+ */
+async function removeFollower(userId, followerId) {
+    const result = await UserRelation.destroy({
+        where: {
+            userId,
+            followerId
+        }
+    })
+    // result 删除的行数
+    return result > 0
+}
+
+/**
  * 获取关注人列表
  * 
  * @param {number} userId 用户id
@@ -79,5 +110,7 @@ async function getFollowersByUser(userId) {
 
 module.exports = {
     getUsersByFollower,
+    addFollower,
+    removeFollower,
     getFollowersByUser
 }
