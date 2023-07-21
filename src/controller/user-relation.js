@@ -58,10 +58,10 @@ async function unFollow(myUserId, curUserId) {
 
 async function getFollowers(userId) {
     const { count, userList } = await getFollowersByUser(userId)
-    return {
+    return new SuccessModel({
         count,
         followersList: userList
-    }
+    })
 }
 
 

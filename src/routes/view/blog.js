@@ -56,6 +56,10 @@ router.get('/profile/:userName', loginRedirect, async (ctx, next) => {
         return item.userName === myUserName
     })
 
+    // 获取关注人列表
+    const followersResult = await getFollowers(curUserInfo.id)
+    const { count: followersCount, followersList } = followersResult.data
+
     await ctx.render('profile', {
         blogData: {
             isEmpty,
@@ -71,8 +75,12 @@ router.get('/profile/:userName', loginRedirect, async (ctx, next) => {
                 count: fansCount,
                 list: fansList
             },
-            amIFollowed
-    }
+            amIFollowed,
+            followersData: {
+                count: followersCount,
+                list: followersList
+            }
+        }
     })
 }
 )
