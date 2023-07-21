@@ -8,6 +8,7 @@ const { genValidator } = require('../../middlewares/validator')
 const userValidate = require('../../validator/user')
 const {isTest} = require('../../utils/env')
 const {loginCheck} = require('../../middlewares/loginCheck')
+const {getFollowers} = require('../../controller/user-relation')
 
 router.prefix('/api/user')
 
@@ -56,6 +57,18 @@ router.patch('/changePassword', loginCheck, genValidator(userValidate), async (c
 // 退出登录
 router.post('/logout', loginCheck, async (ctx, next) => {
     ctx.body = await logout(ctx)
+})
+
+// 获取 at 列表，即关注人列表
+router.get('/getAtList', loginCheck, async (ctx, next) => {
+    const { id: userId } = ctx.session.userInfo
+    const result = await getFollowers(userId)
+    const { followersList } = result.data
+    const list = followersList.map(user => {
+        return `${user.nickName} - ${user.userName}`
+    })
+    // 格式如 ['张三 - zhangsan', '李四 - lisi', '昵称 - userName']
+    ctx.body = list
 })
 
 

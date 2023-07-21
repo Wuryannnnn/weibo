@@ -4,6 +4,7 @@
 
 const { DEFAULT_PICTURE, PAGE_SIZE } = require('../conf/constant');
 const { timeFormat } = require('../utils/dt');
+const { REG_FOR_AT_WHO } = require('../conf/constant');
 
 function _formatUserPicture(obj) {
   if (obj.picture == null) {
@@ -20,6 +21,25 @@ function _formatDBTime(obj) {
 }
 
 /**
+ * 格式化微博内容
+ * @param {Object} obj 微博数据对象
+ * @returns {Object} 格式化后的数据
+ * 
+ */
+function _formatContent(obj) {
+  obj.contentFormat = obj.content;
+
+  // 格式化 @
+  obj.contentFormat = obj.contentFormat.replace(
+    REG_FOR_AT_WHO,
+    (matchStr, nickName, userName) => {
+      return `<a href="/profile/${userName}">@${nickName}</a>`;
+    }
+  );
+    return obj;
+}
+
+/**
  * 
  * @param {Array|Object} list 
  * @returns 
@@ -31,10 +51,13 @@ function formatBlog(list) {
   }
   if(list instanceof Array) {
     // 数组
-    return list.map(_formatDBTime);
+    return list.map(_formatDBTime).map(_formatContent);
   }
   // 对象
-  return _formatDBTime(list);
+  let result = list;
+  result = _formatDBTime(result);
+  result = _formatContent(result);
+  return result;
 }
 /**
  * 格式化用户信息
