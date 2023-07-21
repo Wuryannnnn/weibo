@@ -3,6 +3,7 @@
  */
 
 const { DEFAULT_PICTURE, PAGE_SIZE } = require('../conf/constant');
+const { timeFormat } = require('../utils/dt');
 
 function _formatUserPicture(obj) {
   if (obj.picture == null) {
@@ -10,6 +11,30 @@ function _formatUserPicture(obj) {
   }
 
   return obj;
+}
+
+function _formatDBTime(obj) {
+  obj.createdAtFormat = timeFormat(obj.createdAt);
+  obj.updatedAtFormat = timeFormat(obj.updatedAt);
+  return obj;
+}
+
+/**
+ * 
+ * @param {Array|Object} list 
+ * @returns 
+ */
+
+function formatBlog(list) {
+  if(list == null) {
+    return list;
+  }
+  if(list instanceof Array) {
+    // 数组
+    return list.map(_formatDBTime);
+  }
+  // 对象
+  return _formatDBTime(list);
 }
 /**
  * 格式化用户信息
@@ -30,7 +55,8 @@ function formatUser(list) {
 }
 
 module.exports = {
-  formatUser
+  formatUser,
+  formatBlog
 };
 
 

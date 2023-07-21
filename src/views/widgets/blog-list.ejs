@@ -10,10 +10,10 @@
             <a href="/profile/<%= blog.user.userName%>">
                 <%= blog.user.nickName%>
             </a>:
-            <span><%- blog.contentFormat%></span>
+            <span><%- blog.content%></span>
         </div>
         <div class="info">
-            <span><%= blog.createdAtFormat%></span>
+            <span><%= blog.createdAt%></span>
             &nbsp;
             <% if (locals.canReply) { %>
             <%# 可以回复 %>
