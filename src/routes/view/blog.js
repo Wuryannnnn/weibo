@@ -43,7 +43,7 @@ router.get('/profile/:userName', loginRedirect, async (ctx, next) => {
     }
     const result = await getProfileBlogList(curUserName, 0)
     
-    const { isEmpty, blogList, pageSize, pageIndex, count } = result;
+    const { isEmpty, blogList, pageSize, pageIndex, count } = result.data;
     await ctx.render('profile', {
         blogData: {
             isEmpty,

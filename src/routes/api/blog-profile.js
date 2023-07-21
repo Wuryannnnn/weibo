@@ -10,6 +10,8 @@ const { getBlogListStr } = require('../../utils/blog')
 
 router.prefix('/api/profile')
 
+
+
 router.get('/loadMore/:userName/:pageIndex', loginCheck, async (ctx, next) => {
     let { userName, pageIndex } = ctx.params
     pageIndex = parseInt(pageIndex)
