@@ -61,5 +61,6 @@ async function getBlogListByUser({ userName, pageIndex = 0, pageSize = 10 }) {
 
 module.exports = {
     createBlog,
-    getBlogListByUser
+    getBlogListByUser,
+    
 }

@@ -17,7 +17,7 @@ const redisClient = redis.createClient(REDIS_CONF.port, REDIS_CONF.host);
     }
     )
 
-    redisClient.quit()
+    // redisClient.quit()
 })()
 
 /**
