@@ -172,3 +172,7 @@
   address: '127.0.0.1',
   port: 6379
 }
+2023-07-24 13:17:40: redis connect success
+2023-07-24 13:17:51: redis connect success
+2023-07-24 13:17:51: redis connect success
+2023-07-24 13:17:57: redis connect success
