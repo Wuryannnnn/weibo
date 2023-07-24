@@ -1,0 +1,16 @@
+{
+    "apps":{
+        "name": "weibo",
+        "script": "./bin/www",
+        "watch": true,
+        "ignore_watch": [
+            "node_modules",
+            "logs",
+            "uploadFiles"
+        ],
+        "instances": 4,
+        "error_file": "./logs/app-err.log",
+        "out_file": "./logs/app-out.log",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss"
+    }
+}

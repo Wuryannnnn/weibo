@@ -1,0 +1,52 @@
+2023-07-24 11:30:28: redis connect success
+2023-07-24 11:31:10:   <-- GET /css/main.css
+2023-07-24 11:31:10:   --> GET /css/main.css 200 6ms 661b
+2023-07-24 11:45:00:   <-- GET /css/list.css
+2023-07-24 11:45:00:   <-- GET /javascripts/jquery.caret.js
+2023-07-24 11:45:00:   --> GET /css/list.css 200 5ms 548b
+2023-07-24 11:45:00:   --> GET /javascripts/jquery.caret.js 200 4ms 12.88kb
+2023-07-24 11:45:05:   <-- GET /css/right.css
+2023-07-24 11:45:05:   --> GET /css/right.css 200 4ms 532b
+2023-07-24 11:45:05:   <-- GET /javascripts/jquery.atwho.js
+2023-07-24 11:45:05:   --> GET /javascripts/jquery.atwho.js 200 4ms 36.65kb
+2023-07-24 11:45:23:   <-- GET /
+2023-07-24 11:45:23: userId 2
+2023-07-24 11:45:23: Executing (default): SELECT count(`blog`.`id`) AS `count` FROM `blogs` AS `blog` LEFT OUTER JOIN `users` AS `user` ON `blog`.`userId` = `user`.`id` INNER JOIN `userRelations` AS `userRelation` ON `blog`.`userId` = `userRelation`.`followerId` AND `userRelation`.`userId` = 2;
+2023-07-24 11:45:23: Executing (default): SELECT `blog`.`id`, `blog`.`userId`, `blog`.`content`, `blog`.`image`, `blog`.`createdAt`, `blog`.`updatedAt`, `user`.`id` AS `user.id`, `user`.`userName` AS `user.userName`, `user`.`nickName` AS `user.nickName`, `user`.`picture` AS `user.picture`, `userRelation`.`id` AS `userRelation.id`, `userRelation`.`userId` AS `userRelation.userId`, `userRelation`.`followerId` AS `userRelation.followerId` FROM `blogs` AS `blog` LEFT OUTER JOIN `users` AS `user` ON `blog`.`userId` = `user`.`id` INNER JOIN `userRelations` AS `userRelation` ON `blog`.`userId` = `userRelation`.`followerId` AND `userRelation`.`userId` = 2 ORDER BY `blog`.`id` DESC LIMIT 0, 5;
+2023-07-24 11:45:23: Executing (default): SELECT count(`user`.`id`) AS `count` FROM `users` AS `user` INNER JOIN `userRelations` AS `userRelations` ON `user`.`id` = `userRelations`.`userId` AND `userRelations`.`followerId` = 2 AND `userRelations`.`userId` != 2;
+2023-07-24 11:45:23: Executing (default): SELECT `user`.`id`, `user`.`userName`, `user`.`nickName`, `user`.`picture`, `userRelations`.`id` AS `userRelations.id`, `userRelations`.`userId` AS `userRelations.userId`, `userRelations`.`followerId` AS `userRelations.followerId`, `userRelations`.`createdAt` AS `userRelations.createdAt`, `userRelations`.`updatedAt` AS `userRelations.updatedAt` FROM `users` AS `user` INNER JOIN `userRelations` AS `userRelations` ON `user`.`id` = `userRelations`.`userId` AND `userRelations`.`followerId` = 2 AND `userRelations`.`userId` != 2 ORDER BY `user`.`id` DESC;
+2023-07-24 11:45:23: Executing (default): SELECT count(`userRelation`.`id`) AS `count` FROM `userRelations` AS `userRelation` LEFT OUTER JOIN `users` AS `user` ON `userRelation`.`followerId` = `user`.`id` WHERE `userRelation`.`userId` = 2 AND `userRelation`.`followerId` != 2;
+2023-07-24 11:45:23: Executing (default): SELECT `userRelation`.`id`, `userRelation`.`userId`, `userRelation`.`followerId`, `userRelation`.`createdAt`, `userRelation`.`updatedAt`, `user`.`id` AS `user.id`, `user`.`userName` AS `user.userName`, `user`.`nickName` AS `user.nickName`, `user`.`picture` AS `user.picture` FROM `userRelations` AS `userRelation` LEFT OUTER JOIN `users` AS `user` ON `userRelation`.`followerId` = `user`.`id` WHERE `userRelation`.`userId` = 2 AND `userRelation`.`followerId` != 2 ORDER BY `userRelation`.`id` DESC;
+2023-07-24 11:45:23: Executing (default): SELECT count(*) AS `count` FROM `atRelations` AS `atRelation` WHERE `atRelation`.`userId` = 2 AND `atRelation`.`isRead` = false;
+2023-07-24 11:45:23: Executing (default): SELECT `id`, `userId`, `blogId`, `isRead`, `createdAt`, `updatedAt` FROM `atRelations` AS `atRelation` WHERE `atRelation`.`userId` = 2 AND `atRelation`.`isRead` = false;
+2023-07-24 11:45:23:   --> GET / 200 102ms 12.27kb
+2023-07-24 11:45:23:   <-- GET /css/jquery.atwho.css
+2023-07-24 11:45:23:   --> GET /css/jquery.atwho.css 200 4ms 1.28kb
+2023-07-24 11:45:23:   <-- GET /javascripts/query-object.js
+2023-07-24 11:45:23:   --> GET /javascripts/query-object.js 200 1ms 8.46kb
+2023-07-24 11:48:35:   <-- GET /css/list.css
+2023-07-24 11:48:35:   <-- GET /javascripts/jquery.caret.js
+2023-07-24 11:48:35:   --> GET /css/list.css 200 7ms 548b
+2023-07-24 11:48:35:   --> GET /javascripts/jquery.caret.js 200 5ms 12.88kb
+2023-07-24 11:49:13:   <-- GET /profile/lisi
+2023-07-24 11:49:13: Executing (default): SELECT count(`blog`.`id`) AS `count` FROM `blogs` AS `blog` INNER JOIN `users` AS `user` ON `blog`.`userId` = `user`.`id` AND `user`.`userName` = 'lisi';
+2023-07-24 11:49:13: Executing (default): SELECT `blog`.`id`, `blog`.`userId`, `blog`.`content`, `blog`.`image`, `blog`.`createdAt`, `blog`.`updatedAt`, `user`.`id` AS `user.id`, `user`.`userName` AS `user.userName`, `user`.`nickName` AS `user.nickName`, `user`.`picture` AS `user.picture` FROM `blogs` AS `blog` INNER JOIN `users` AS `user` ON `blog`.`userId` = `user`.`id` AND `user`.`userName` = 'lisi' ORDER BY `blog`.`id` DESC LIMIT 0, 5;
+2023-07-24 11:49:13: Executing (default): SELECT count(`user`.`id`) AS `count` FROM `users` AS `user` INNER JOIN `userRelations` AS `userRelations` ON `user`.`id` = `userRelations`.`userId` AND `userRelations`.`followerId` = 2 AND `userRelations`.`userId` != 2;
+2023-07-24 11:49:13: Executing (default): SELECT `user`.`id`, `user`.`userName`, `user`.`nickName`, `user`.`picture`, `userRelations`.`id` AS `userRelations.id`, `userRelations`.`userId` AS `userRelations.userId`, `userRelations`.`followerId` AS `userRelations.followerId`, `userRelations`.`createdAt` AS `userRelations.createdAt`, `userRelations`.`updatedAt` AS `userRelations.updatedAt` FROM `users` AS `user` INNER JOIN `userRelations` AS `userRelations` ON `user`.`id` = `userRelations`.`userId` AND `userRelations`.`followerId` = 2 AND `userRelations`.`userId` != 2 ORDER BY `user`.`id` DESC;
+2023-07-24 11:49:13: Executing (default): SELECT count(`userRelation`.`id`) AS `count` FROM `userRelations` AS `userRelation` LEFT OUTER JOIN `users` AS `user` ON `userRelation`.`followerId` = `user`.`id` WHERE `userRelation`.`userId` = 2 AND `userRelation`.`followerId` != 2;
+2023-07-24 11:49:13: Executing (default): SELECT `userRelation`.`id`, `userRelation`.`userId`, `userRelation`.`followerId`, `userRelation`.`createdAt`, `userRelation`.`updatedAt`, `user`.`id` AS `user.id`, `user`.`userName` AS `user.userName`, `user`.`nickName` AS `user.nickName`, `user`.`picture` AS `user.picture` FROM `userRelations` AS `userRelation` LEFT OUTER JOIN `users` AS `user` ON `userRelation`.`followerId` = `user`.`id` WHERE `userRelation`.`userId` = 2 AND `userRelation`.`followerId` != 2 ORDER BY `userRelation`.`id` DESC;
+2023-07-24 11:49:13: Executing (default): SELECT count(*) AS `count` FROM `atRelations` AS `atRelation` WHERE `atRelation`.`userId` = 2 AND `atRelation`.`isRead` = false;
+2023-07-24 11:49:13: Executing (default): SELECT `id`, `userId`, `blogId`, `isRead`, `createdAt`, `updatedAt` FROM `atRelations` AS `atRelation` WHERE `atRelation`.`userId` = 2 AND `atRelation`.`isRead` = false;
+2023-07-24 11:49:13:   --> GET /profile/lisi 200 42ms 7.01kb
+2023-07-24 11:49:13:   <-- GET /css/right.css
+2023-07-24 11:49:13:   --> GET /css/right.css 200 3ms 532b
+2023-07-24 11:49:14:   <-- GET /favicon.ico
+2023-07-24 11:49:14:   --> GET /favicon.ico 200 10ms 2.26kb
+2023-07-24 11:50:04: redis connect error Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1247:16) {
+  errno: -61,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 6379
+}

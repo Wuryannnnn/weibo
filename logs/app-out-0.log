@@ -1,0 +1,31 @@
+2023-07-24 11:30:28: redis connect success
+2023-07-24 11:31:10:   <-- GET /css/list.css
+2023-07-24 11:31:10:   --> GET /css/list.css 200 7ms 548b
+2023-07-24 11:45:00:   <-- GET /javascripts/my-ajax.js
+2023-07-24 11:45:00:   --> GET /javascripts/my-ajax.js 200 3ms 2.45kb
+2023-07-24 11:45:05:   <-- GET /css/main.css
+2023-07-24 11:45:05:   <-- GET /javascripts/my-ajax.js
+2023-07-24 11:45:05:   --> GET /css/main.css 200 8ms 661b
+2023-07-24 11:45:05:   --> GET /javascripts/my-ajax.js 200 7ms 2.45kb
+2023-07-24 11:45:23:   <-- GET /css/right.css
+2023-07-24 11:45:23:   --> GET /css/right.css 200 3ms 532b
+2023-07-24 11:45:23:   <-- GET /javascripts/jquery.atwho.js
+2023-07-24 11:45:23:   --> GET /javascripts/jquery.atwho.js 200 2ms 36.65kb
+2023-07-24 11:48:35:   <-- GET /css/main.css
+2023-07-24 11:48:35:   <-- GET /javascripts/my-ajax.js
+2023-07-24 11:48:35:   --> GET /css/main.css 200 7ms 661b
+2023-07-24 11:48:35:   --> GET /javascripts/my-ajax.js 200 6ms 2.45kb
+2023-07-24 11:48:36:   <-- GET /favicon.ico
+2023-07-24 11:48:36:   --> GET /favicon.ico 200 22ms 2.26kb
+2023-07-24 11:49:13:   <-- GET /css/list.css
+2023-07-24 11:49:13:   -x- GET /css/list.css 200 5ms 548b
+2023-07-24 11:49:32:   <-- GET /css/list.css
+2023-07-24 11:49:32:   --> GET /css/list.css 200 3ms 548b
+2023-07-24 11:50:04: redis connect error Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1247:16) {
+  errno: -61,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 6379
+}

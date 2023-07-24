@@ -14,6 +14,7 @@ const redisStore = require('koa-redis')
 const { REDIS_CONF } = require('./conf/db')
 const {SESSION_SECRET_KEY} = require('./conf/secretKeys')
 
+const atAPIRouter = require('./routes/api/blog-at')
 const squareAPIRouter = require('./routes/api/blog-square')
 const profileAPIRouter = require('./routes/api/blog-profile')
 const blogViewRouter = require('./routes/view/blog')
@@ -58,6 +59,7 @@ app.use(session({
 
 
 // routes
+app.use(atAPIRouter.routes(), atAPIRouter.allowedMethods())
 app.use(squareAPIRouter.routes(), squareAPIRouter.allowedMethods())
 app.use(profileAPIRouter.routes(), profileAPIRouter.allowedMethods())
 app.use(userAPIRouter.routes(), userAPIRouter.allowedMethods())

@@ -1,0 +1,5 @@
+Error: Socket closed unexpectedly
+    at Socket.<anonymous> (/Users/wurui/Desktop/imooc/weibo/koa2-weibo-code/node_modules/@redis/client/dist/lib/client/socket.js:195:118)
+    at Object.onceWrapper (node:events:628:26)
+    at Socket.emit (node:events:513:28)
+    at TCP.<anonymous> (node:net:757:14)
